@@ -151,6 +151,7 @@ streamlit run app.py
 -   📅 Quản lý thời hạn và ngày hoàn thành
 -   📝 Ghi chú chi tiết cho từng ticket
 -   🔒 Kết nối bảo mật với Supabase
+-   🎨 **Light theme**: Giao diện sáng mặc định
 
 ## Cấu trúc file
 
@@ -161,59 +162,10 @@ streamlit run app.py
 -   `update_tickets_table.sql` - SQL script để cập nhật bảng tickets
 -   `requirements.txt` - Danh sách dependencies
 -   `.env` - File cấu hình Supabase (cần tạo thủ công)
+-   `.streamlit/config.toml` - Cấu hình Streamlit (theme light mặc định)
 -   `.streamlit_login_cache` - File lưu trạng thái login (tự động tạo)
+-   `USER_MANAGEMENT_GUIDE.md` - Hướng dẫn quản lý user cho admin
 
 ## Lưu ý
 
--   File `database.py` thay thế cho `supabase.py` để tránh xung đột tên với thư viện
--   Đảm bảo file `.env` không được commit lên git
--   File `.streamlit_login_cache` chứa thông tin login được mã hóa và tự động hết hạn sau 30 ngày
--   Sử dụng `create_user.py` để tạo user mới một cách dễ dàng
--   **Bảo mật**: Password được hash bằng SHA256 trước khi lưu vào database
--   **Phân quyền**: Admin có thể xem tất cả tickets, user thường chỉ xem tickets của project mình
-
-## Troubleshooting
-
-### Lỗi "Could not find the 'created_by' column"
-
-```bash
-# Giải pháp 1: Chạy migration tự động
-python migrate_database.py
-
-# Giải pháp 2: Chạy SQL thủ công
-# Mở Supabase SQL Editor và chạy file update_tickets_table.sql
-```
-
-### Lỗi "Could not find the 'project' column"
-
-```bash
-# Tương tự lỗi trên, chạy migration
-python migrate_database.py
-```
-
-### Không tạo được user đầu tiên
-
-```bash
-# Sử dụng script helper
-python create_user.py
-
-# Hoặc chạy SQL trực tiếp trong Supabase
-```
-
-### Lỗi kết nối Supabase
-
--   Kiểm tra file `.env` có đúng `SUPABASE_URL` và `SUPABASE_ANON_KEY`
--   Đảm bảo project Supabase đang hoạt động
--   Kiểm tra kết nối internet
-
-### Không thể đăng nhập
-
--   Kiểm tra username/password có chính xác
--   Đảm bảo bảng `users` đã có dữ liệu
--   Kiểm tra password đã được hash đúng cách
-
-### App chạy nhưng không hiển thị tickets
-
--   Kiểm tra user có thuộc project nào
--   Đảm bảo có tickets trong database với project tương ứng
--   Admin có thể xem tất cả tickets, user thường chỉ xem của project mình
+-   File `

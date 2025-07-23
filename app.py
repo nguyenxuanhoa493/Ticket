@@ -66,10 +66,16 @@ def remove_login_info():
         pass
 
 
-# CSS để ẩn sidebar và custom styling
+# CSS để ẩn sidebar và custom styling với light theme
 st.markdown(
     """
 <style>
+    /* Force light theme */
+    .stApp {
+        background-color: #ffffff;
+        color: #262730;
+    }
+    
     /* Ẩn sidebar */
     .css-1d391kg {display: none;}
     .css-1rs6os {display: none;}

@@ -1,0 +1,15 @@
+[theme]
+# Theme mặc định cho ứng dụng
+primaryColor = "#0066cc"
+backgroundColor = "#ffffff"
+secondaryBackgroundColor = "#f0f2f6"
+textColor = "#262730"
+base = "light"
+
+[server]
+# Tự động reload khi có thay đổi file (chỉ cho development)
+runOnSave = true
+
+[browser]
+# Tự động mở browser khi chạy app
+gatherUsageStats = false 
